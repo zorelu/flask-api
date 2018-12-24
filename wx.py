@@ -15,11 +15,11 @@ class Wx(db.Model):
 wxifo=Wx.query.all()
 #json
 data=[]
-for xx in Wx.query.all():
-    data.append(dict(type=xx.type,name=xx.name,url=xx.url))
+for a in Wx.query.all():
+    data.append(dict(type=a.type,name=a.name,url=a.url))
 print(json.dumps(data))
 #json
-a= {
+b= {
     "body":data
 }
-print(a)
+print(b)
