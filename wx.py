@@ -1,7 +1,9 @@
 from flask import send_file, send_from_directory,jsonify
 from flask import Flask, session, redirect, url_for, escape, request
 from flask_sqlalchemy import SQLAlchemy
+import json
 app = Flask(__name__)
+
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///api.db'
 db = SQLAlchemy(app)
 
@@ -11,15 +13,13 @@ class Wx(db.Model):
     name = db.Column(db.String(100),primary_key=True)
     url = db.Column(db.String(110))
 wxifo=Wx.query.all()
-
-for a in wxifo:
-    b = {
-        "type":a.type,
-        "name":a.name,
-        "url":a.url
-    }
-    print(b)
-c= {
-    "body":b
-    }
-print(c)
+#json
+data=[]
+for xx in Wx.query.all():
+    data.append(dict(type=xx.type,name=xx.name,url=xx.url))
+print(json.dumps(data))
+#json
+a= {
+    "body":data
+}
+print(a)
