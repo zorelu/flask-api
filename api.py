@@ -34,8 +34,12 @@ def token():
         else:
             try:
                 users = User.query.filter(User.useid == useid, User.secret == secret).first()
-                token = users.token
-                mes = "ok 2000"
+                if users.token == '':
+                    token = "please add token "
+                else:
+                    token = users.token
+                    mes = "ok 2000"
+
             except BaseException:
                 token = "not token in sqlserver"
                 mes ="no sql select 4002"
@@ -65,6 +69,8 @@ def usetoken():
             token="no token"
             return jsonify(reusetoken(token,mes))
         else:
+            a = request.get_data()
+            print (a)
             token=intoken.token
             mes ="2000 ok"
             return jsonify(reusetoken(token,mes))
