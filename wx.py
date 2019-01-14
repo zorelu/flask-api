@@ -23,3 +23,11 @@ b= {
     "body":data
 }
 print(b)
+
+
+# {'name': 'test1', 'url': 'http://www.soso.com/', 'type': 'click'}
+# {'name': 'test2', 'url': 'http://www.qq.com/', 'type': 'click'}
+# {'name': 'test3', 'url': 'http://www.baidu.com.com/', 'type': 'click'}
+# {'body': {'name': 'test3', 'url': 'http://www.baidu.com.com/', 'type': 'click'}}
+
+#{'body': {'name': 'test1', 'url': 'http://www.soso.com/', 'type': 'click'},{'name': 'test2', 'url': 'http://www.qq.com/', 'type': 'click'},{'name': 'test3', 'url': 'http://www.baidu.com.com/', 'type': 'click'}}
